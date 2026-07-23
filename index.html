@@ -485,18 +485,25 @@ const solicitudRol = [
       texto.className = "texto-macro";
       texto.textContent = macro.texto;
 
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.className = "boton-copiar";
-      boton.textContent = "📋 COPIAR";
-
-      boton.addEventListener("click", function () {
-        copiarMacro(macro.texto, boton);
-      });
-
       tarjeta.appendChild(superior);
-      tarjeta.appendChild(texto);
-      tarjeta.appendChild(boton);
+tarjeta.appendChild(texto);
+
+if (
+  macro.categoria !== "RP" &&
+  macro.categoria !== "PD" &&
+  macro.categoria !== "Infracciones"
+) {
+  const boton = document.createElement("button");
+  boton.type = "button";
+  boton.className = "boton-copiar";
+  boton.textContent = "📋 COPIAR";
+
+  boton.addEventListener("click", function () {
+    copiarMacro(macro.texto, boton);
+  });
+
+  tarjeta.appendChild(boton);
+}
 
       return tarjeta;
     }
