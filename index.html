@@ -409,15 +409,25 @@ Consulta y copia con un solo clic.
   categoria: "Macros/Reclutas",
   icono: "🚓",
   texto: "/flobby ¡SOLICITO PERMISO PARA SUBIR AL PISO 2 A PATRULLAJE!"
-},
-{
-  titulo: "Solicitud de Rol",
-  categoria: "Solicitud",
-  icono: "📝",
-  texto: "SOLICITUD DE ROL\n\nNOMBRE: ___\nRANGO: RECLUTA\nFACCIÓN: Policía\nSERVIDOR: Santa Cruz\nMENCIÓN:\n@Max065974\n@pekky21"
 }
-    ];
-
+  ];
+{
+  titulo: "Solicitud salir a patrullaje",
+  categoria: "Macros/Reclutas",
+  icono: "🚓",
+  texto: "/flobby ¡SOLICITO PERMISO PARA SUBIR AL PISO 2 A PATRULLAJE!"
+}
+];
+    
+const solicitudRol = [
+  {
+    titulo: "Solicitud de Rol",
+    categoria: "Solicitud de Rol",
+    icono: "📝",
+    texto: "SOLICITUD DE ROL\n\nNOMBRE: ___\nRANGO: RECLUTA\nFACCIÓN: Policía\nSERVIDOR: Santa Cruz\nMENCIÓN:\n@Max065974\n@pekky21"
+  }
+];
+    
     const listaMacros = document.getElementById("listaMacros");
     const buscar = document.getElementById("buscar");
     const contador = document.getElementById("contador");
@@ -476,7 +486,11 @@ Consulta y copia con un solo clic.
     function mostrarMacros() {
       const termino = buscar.value.trim().toLowerCase();
 
-      const resultados = macros.filter(function (macro) {
+      const fuenteDatos = categoriaSeleccionada === "Solicitud de Rol"
+  ? solicitudRol
+  : macros;
+
+const resultados = fuenteDatos.filter(function (macro) {
         const coincideCategoria =
           categoriaSeleccionada === "Todas" ||
           macro.categoria === categoriaSeleccionada;
