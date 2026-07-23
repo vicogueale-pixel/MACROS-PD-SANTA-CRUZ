@@ -511,24 +511,23 @@ function mostrarMacros() {
         ? solicitudRol
         : macros;
 
-  const resultados = fuenteDatos.filter(function (macro) {
+const resultados = fuenteDatos.filter(function (macro) {
 
-    const coincideCategoria =
-      categoriaSeleccionada === "Todas" ||
-      categoriaSeleccionada === "Solicitud de Rol" ||
-      macro.categoria === categoriaSeleccionada;
+  const coincideCategoria =
+    categoriaSeleccionada === "Todas" ||
+    macro.categoria === categoriaSeleccionada;
 
-    const contenido =
-      macro.titulo.toLowerCase() +
-      " " +
-      macro.categoria.toLowerCase() +
-      " " +
-      macro.texto.toLowerCase();
+  const contenido =
+    macro.titulo.toLowerCase() +
+    " " +
+    macro.categoria.toLowerCase() +
+    " " +
+    macro.texto.toLowerCase();
 
-    const coincideBusqueda = contenido.includes(termino);
+  const coincideBusqueda = contenido.includes(termino);
 
-    return coincideCategoria && coincideBusqueda;
-  });
+  return coincideCategoria && coincideBusqueda;
+});
 
   listaMacros.innerHTML = "";
 
