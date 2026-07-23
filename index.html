@@ -219,8 +219,7 @@
   padding: 10px;
 }
 
-.boton-copiar {
-.boton-copiar {
+.boton-copiar{
   width: 100%;
   border: none;
   border-radius: 13px;
@@ -284,10 +283,6 @@
     padding: 22px;
   }
 }
-
-      .macro {
-        padding: 22px;
-      }
       
   </style>
 </head>
@@ -355,9 +350,9 @@ Consulta y copia con un solo clic.
         Macros Reclutas
       </button>
 
-      tarjeta.className = "macro";
-        Macros
-      </button>
+      <button class="categoria" data-categoria="Macros">
+  Macros
+</button>
 
       <button class="categoria" data-categoria="RP">
         RP / Reglas de Rol
@@ -466,13 +461,11 @@ const solicitudRol = [
   tarjeta.className = "macro";
 
   const superior = document.createElement("div");
+  superior.className = "macro-superior";
 
-      const superior = document.createElement("div");
-      superior.className = "macro-superior";
-
-      const icono = document.createElement("div");
-      icono.className = "macro-icono";
-      icono.textContent = macro.icono;
+  const icono = document.createElement("div");
+  icono.className = "macro-icono";
+  icono.textContent = macro.icono;
 
       const informacion = document.createElement("div");
 
