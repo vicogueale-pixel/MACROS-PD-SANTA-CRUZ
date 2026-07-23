@@ -136,11 +136,12 @@
       cursor: pointer;
     }
 
-    .categoria.activa {
-      background: var(--azul);
-      color: var(--blanco);
-      border-color: var(--azul);
-    }
+.categoria.activa {
+  background: linear-gradient(90deg, var(--dorado), var(--dorado-claro));
+  color: var(--negro);
+  border-color: var(--dorado);
+  font-weight: bold;
+}
 
     .contador {
       font-size: 14px;
@@ -185,18 +186,19 @@
       margin-bottom: 5px;
     }
 
-    .etiqueta {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--azul);
-      background: #eaf4ff;
-      border-radius: 999px;
-      padding: 4px 9px;
-    }
-
-    .texto-macro {
-      background: #f5f8fc;
-      border-left: 4px solid var(--azul);
+.etiqueta {
+  display: inline-block;
+  font-size: 12px;
+  color: #3f2f0f;
+  background: #f1dfb0;
+  border: 1px solid #d4b05b;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-weight: bold;
+}
+.texto-macro {
+  background: #edf2f8;
+  border-left: 4px solid var(--dorado);
       border-radius: 10px;
       padding: 13px;
       margin-bottom: 14px;
@@ -208,16 +210,18 @@
     }
 
     .boton-copiar {
-      width: 100%;
-      border: none;
-      border-radius: 13px;
-      padding: 13px 16px;
-      background: linear-gradient(90deg, var(--azul), #0755bc);
-      color: var(--blanco);
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.boton-copiar {
+  width: 100%;
+  border: none;
+  border-radius: 13px;
+  padding: 13px 16px;
+  background: linear-gradient(90deg, #0a1a2f, #12345a);
+  color: var(--dorado-claro);
+  border: 1px solid rgba(224, 195, 122, 0.45);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
     .boton-copiar:active {
       transform: scale(0.98);
@@ -297,7 +301,7 @@
 
     <h1>Macros de Policía<br>Santa Cruz LATAM</h1>
 
-    <p class="subtitulo">Departamento de Policía</p>
+<p class="subtitulo">Sistema Oficial de Macros Policiales</p>
 
     <p class="descripcion">
       Macros oficiales para el personal de la facción.
