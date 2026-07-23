@@ -479,9 +479,12 @@ const solicitudRol = [
     function mostrarMacros() {
       const termino = buscar.value.trim().toLowerCase();
 
-      const fuenteDatos = categoriaSeleccionada === "Solicitud de Rol"
-  ? solicitudRol
-  : macros;
+const fuenteDatos =
+  categoriaSeleccionada === "Todas"
+    ? macros.concat(solicitudRol)
+    : categoriaSeleccionada === "Solicitud de Rol"
+      ? solicitudRol
+      : macros;
 
 const resultados = fuenteDatos.filter(function (macro) {
         const coincideCategoria =
