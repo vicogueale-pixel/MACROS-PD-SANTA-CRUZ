@@ -504,12 +504,14 @@ const solicitudRol = [
 function mostrarMacros() {
   const termino = buscar.value.trim().toLowerCase();
 
-  const fuenteDatos =
+const fuenteDatos =
     categoriaSeleccionada === "Todas"
-      ? macros.concat(solicitudRol)
+      ? macros.concat(solicitudRol, reglasRol)
       : categoriaSeleccionada === "Solicitud de Rol"
         ? solicitudRol
-        : macros;
+        : categoriaSeleccionada === "RP"
+          ? reglasRol
+          : macros;
 
 const resultados = fuenteDatos.filter(function (macro) {
 
