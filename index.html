@@ -203,17 +203,23 @@
 .texto-macro {
   background: #edf2f8;
   border-left: 4px solid var(--dorado);
-      border-radius: 10px;
-      padding: 13px;
-      margin-bottom: 14px;
-      font-family: monospace;
-      font-size: 14px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
+  border-radius: 10px;
+  padding: 13px;
+  margin-bottom: 14px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
 
-    .boton-copiar {
+.texto-macro.rp {
+  font-size: 13px;
+  line-height: 1.25;
+  padding: 10px;
+}
+
+.boton-copiar {
 .boton-copiar {
   width: 100%;
   border: none;
@@ -482,8 +488,8 @@ const solicitudRol = [
       superior.appendChild(informacion);
 
       const texto = document.createElement("div");
-      texto.className = "texto-macro";
-      texto.textContent = macro.texto;
+texto.className = macro.categoria === "RP" ? "texto-macro rp" : "texto-macro";
+texto.textContent = macro.texto;
 
       tarjeta.appendChild(superior);
 tarjeta.appendChild(texto);
