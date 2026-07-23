@@ -476,46 +476,49 @@ const solicitudRol = [
       return tarjeta;
     }
 
-    function mostrarMacros() {
-      const termino = buscar.value.trim().toLowerCase();
+function mostrarMacros() {
+  const termino = buscar.value.trim().toLowerCase();
 
-const fuenteDatos =
-  categoriaSeleccionada === "Todas"
-    ? macros.concat(solicitudRol)
-    : categoriaSeleccionada === "Solicitud de Rol"
-      ? solicitudRol
-      : macros;
+  const fuenteDatos =
+    categoriaSeleccionada === "Todas"
+      ? macros.concat(solicitudRol)
+      : categoriaSeleccionada === "Solicitud de Rol"
+        ? solicitudRol
+        : macros;
 
-const resultados = fuenteDatos.filter(function (macro) {
-        const coincideCategoria =
-          categoriaSeleccionada === "Todas" ||
-          macro.categoria === categoriaSeleccionada;
+  const resultados = fuenteDatos.filter(function (macro) {
 
-        const contenido =
-          macro.titulo.toLowerCase() +
-          " " +
-          macro.categoria.toLowerCase() +
-          " " +
-          macro.texto.toLowerCase();
+    const coincideCategoria =
+      categoriaSeleccionada === "Todas" ||
+      categoriaSeleccionada === "Solicitud de Rol" ||
+      macro.categoria === categoriaSeleccionada;
 
-        const coincideBusqueda = contenido.includes(termino);
+    const contenido =
+      macro.titulo.toLowerCase() +
+      " " +
+      macro.categoria.toLowerCase() +
+      " " +
+      macro.texto.toLowerCase();
 
-        return coincideCategoria && coincideBusqueda;
-      });
+    const coincideBusqueda = contenido.includes(termino);
 
-      listaMacros.innerHTML = "";
+    return coincideCategoria && coincideBusqueda;
+  });
 
-      resultados.forEach(function (macro) {
-        listaMacros.appendChild(crearTarjeta(macro));
-      });
+  listaMacros.innerHTML = "";
 
-      contador.textContent =
-        resultados.length === 1
-          ? "1 macro disponible"
-          : resultados.length + " macros disponibles";
+  resultados.forEach(function (macro) {
+    listaMacros.appendChild(crearTarjeta(macro));
+  });
 
-      sinResultados.style.display =
-        resultados.length === 0 ? "block" : "none";
+  contador.textContent =
+    resultados.length === 1
+      ? "1 disponible"
+      : resultados.length + " disponibles";
+
+  sinResultados.style.display =
+    resultados.length === 0 ? "block" : "none";
+}
     }
 
     async function copiarMacro(texto, boton) {
