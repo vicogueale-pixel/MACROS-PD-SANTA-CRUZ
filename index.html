@@ -531,6 +531,99 @@ const solicitudRol = [
   texto: "Cometer actos criminales contra personal médico de emergencia.\n\nCastigo: Desde 90 minutos en la cárcel hasta suspensión de cuenta."
 }
 ];
+
+    const reglasPD = [
+{
+titulo: "PD1 - Acusaciones falsas o infundadas contra un civil",
+categoria: "PD",
+icono: "👮",
+texto: "Si un policía esposa, encarcela o ataca a una persona con una pistola Taser o un arma sin motivo justificado.\n\nCastigo: Destitución del policía y castigo de acuerdo con las leyes estatales."
+},
+{
+titulo: "PD2 - Detención o encarcelamiento sin causa justificada",
+categoria: "PD",
+icono: "👮",
+texto: "Detener o encarcelar a un civil sin una causa justificada.\n\nCastigo: Destitución del policía y castigo de acuerdo con las leyes estatales."
+},
+{
+titulo: "PD3 - Ataque a civiles sin motivo justificado",
+categoria: "PD",
+icono: "👮",
+texto: "Atacar a civiles con armas, manos o pistola Taser sin motivo justificado.\n\nCastigo: Destitución del policía."
+},
+{
+titulo: "PD4 - Actitud irrespetuosa hacia colegas y civiles",
+categoria: "PD",
+icono: "👮",
+texto: "Groserías, insultos o manifestaciones de intolerancia hacia compañeros o civiles.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD5 - Uso de armas o fuerza sin previo aviso",
+categoria: "PD",
+icono: "👮",
+texto: "Antes de disparar, usar pistola eléctrica o atacar, debe advertir al civil.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD6 - Incumplimiento de subordinación",
+categoria: "PD",
+icono: "👮",
+texto: "No seguir órdenes de superiores.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD7 - Infracción de leyes estatales",
+categoria: "PD",
+icono: "👮",
+texto: "Incumplir las reglas del servidor o leyes estatales.\n\nCastigo: 1 amonestación + sanción estatal."
+},
+{
+titulo: "PD8 - Uso personal de vehículos oficiales",
+categoria: "PD",
+icono: "👮",
+texto: "Usar vehículos de la empresa para fines personales.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD9 - Uso de vehículos personales en labores policiales",
+categoria: "PD",
+icono: "👮",
+texto: "Usar vehículos personales para realizar funciones policiales.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD10 - Insultos fuera de rol",
+categoria: "PD",
+icono: "👮",
+texto: "Está prohibido insultar jugadores o empleados de la facción si no forma parte del rol.\n\nCastigo: 1 reprimenda."
+},
+{
+titulo: "PD11 - Arrestar sin dar razón",
+categoria: "PD",
+icono: "👮",
+texto: "Antes de arrestar debe indicar el motivo mediante voz o texto.\n\nEjemplo: Está arrestado por infracciones civiles. Tiene derecho a guardar silencio.\n\nCastigo: 1 advertencia."
+},
+{
+titulo: "PD12 - Falta de participación policial",
+categoria: "PD",
+icono: "👮",
+texto: "No responder mensajes de Discord, no participar en actividades o ignorar solicitudes de superiores.\n\nCastigo: 1 advertencia."
+},
+{
+titulo: "PD13 - Arrestar sin evidencia de infracciones",
+categoria: "PD",
+icono: "👮",
+texto: "Arrestar personas sin captura de pantalla de la lista de infracciones.\n\nCastigo: 1 advertencia."
+},
+{
+titulo: "PD14 - No proporcionar información de detenidos",
+categoria: "PD",
+icono: "👮",
+texto: "No entregar información sobre personas arrestadas.\n\nCastigo: 1 advertencia."
+},
+{
+titulo: "PD15 - No realizar un rol policial adecuado",
+categoria: "PD",
+icono: "👮",
+texto: "No interpretar correctamente el papel de policía. Siempre debe actuar con respeto, usar Señor y Por favor, e informar el motivo del arresto.\n\nCastigo: 1 advertencia."
+}
+];
     const listaMacros = document.getElementById("listaMacros");
     const buscar = document.getElementById("buscar");
     const contador = document.getElementById("contador");
@@ -597,13 +690,15 @@ function mostrarMacros() {
   const termino = buscar.value.trim().toLowerCase();
 
 const fuenteDatos =
-  categoriaSeleccionada === "Todas"
-    ? macros.concat(solicitudRol, reglasRol)
-    : categoriaSeleccionada === "Solicitud de Rol"
-      ? solicitudRol
-      : categoriaSeleccionada === "RP"
-        ? reglasRol
-        : macros;
+    categoriaSeleccionada === "Todas"
+      ? macros.concat(solicitudRol, reglasRol, reglasPD)
+      : categoriaSeleccionada === "Solicitud de Rol"
+        ? solicitudRol
+        : categoriaSeleccionada === "RP"
+          ? reglasRol
+          : categoriaSeleccionada === "PD"
+            ? reglasPD
+            : macros;
 const resultados = fuenteDatos.filter(function (macro) {
 
   const coincideCategoria =
